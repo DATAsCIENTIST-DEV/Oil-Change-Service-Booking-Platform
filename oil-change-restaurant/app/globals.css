@@ -1,0 +1,2 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+:root{color-scheme:light}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#F3F4F6;color:#1F2937;font-family:Inter,ui-sans-serif,system-ui,sans-serif}.focus-ring:focus-visible{outline:2px solid #1E3A8A;outline-offset:2px}input,select,textarea{outline:none}.container-page{width:100%;max-width:1400px;margin:0 auto;padding:24px 16px 100px}@media(min-width:1024px){.container-page{margin-left:16rem;width:calc(100% - 16rem);padding:32px 40px 48px}}

@@ -1,0 +1,1 @@
+import {NextResponse} from 'next/server'; export async function GET(){return NextResponse.json({profile:{name:'Jordan Lee',email:'jordan@harborgrill.com',phone:'+44 20 5555 0148',restaurant:'Harbor & Grill',address:'18 Market Street'}})} export async function PATCH(req:Request){return NextResponse.json({profile:await req.json()})}

@@ -1,0 +1,6 @@
+'use client';
+import { create } from 'zustand';
+import { Booking, Notification } from '@/types';
+import { seedBookings, seedNotifications } from './data';
+type Store={bookings:Booking[]; notifications:Notification[]; profile:{name:string;email:string;phone:string;restaurant:string;address:string;emailUpdates:boolean;smsUpdates:boolean}; addBooking:(b:Booking)=>void; markRead:(id:string)=>void; markAllRead:()=>void; updateProfile:(p:Store['profile'])=>void};
+export const useAppStore=create<Store>()((set)=>({bookings:seedBookings,notifications:seedNotifications,profile:{name:'Jordan Lee',email:'jordan@harborgrill.com',phone:'+44 20 5555 0148',restaurant:'Harbor & Grill',address:'18 Market Street',emailUpdates:true,smsUpdates:true},addBooking:(b)=>set(s=>({bookings:[b,...s.bookings],notifications:[{id:crypto.randomUUID(),title:'Booking confirmed',body:`${b.serviceName} is booked for ${b.date} at ${b.time}.`,time:'Just now',read:false,type:'booking'},...s.notifications]})),markRead:(id)=>set(s=>({notifications:s.notifications.map(n=>n.id===id?{...n,read:true}:n)})),markAllRead:()=>set(s=>({notifications:s.notifications.map(n=>({...n,read:true}))})),updateProfile:(profile)=>set({profile})}));

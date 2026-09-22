@@ -1,0 +1,1 @@
+import {describe,it,expect} from 'vitest'; import {services} from '@/lib/data'; describe('service catalog',()=>{it('contains priced services with durations',()=>{expect(services.length).toBeGreaterThanOrEqual(4); services.forEach(s=>{expect(s.price).toBeGreaterThan(0);expect(s.duration).toBeTruthy()})})});
